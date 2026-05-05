@@ -2,9 +2,11 @@
 
 import React from 'react';
 import { Search, MapPin, Clock, Users, Star, ArrowRight, Check } from 'lucide-react';
+import Link from 'next/link';
 
 const courses = [
   {
+    id: 1,
     title: "Pinecrest Valley Links",
     location: "Scottsdale, AZ",
     price: 185,
@@ -17,6 +19,7 @@ const courses = [
     image: "https://images.unsplash.com/photo-1592937238247-cd0090e02f65?q=80&w=1500&auto=format&fit=crop&ixlib=rb-4.0.3"
   },
   {
+    id: 2,
     title: "Silver Oak Shores",
     location: "Pebble Beach, CA",
     price: 310,
@@ -29,6 +32,7 @@ const courses = [
     image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1500&auto=format&fit=crop&ixlib=rb-4.0.3"
   },
   {
+    id: 3,
     title: "Highland Meadows",
     location: "Denver, CO",
     price: 125,
@@ -201,9 +205,9 @@ const ExploreClubs = () => {
                       <span className="font-bold text-[#113f1b]">{course.rating}</span>
                       <span className="text-gray-500 font-medium">({course.reviews} Reviews)</span>
                     </div>
-                    <button className="bg-[#113f1b] hover:bg-[#0a2e0f] text-white text-[13px] font-bold px-6 py-2.5 rounded-xl transition-colors shadow-sm">
+                    <Link href={`/explore-clubs/reserve/${course?.id}`} className="bg-[#113f1b] hover:bg-[#0a2e0f] text-white text-[13px] font-bold px-6 py-2.5 rounded-xl transition-colors shadow-sm">
                       Reserve Tee Time
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
