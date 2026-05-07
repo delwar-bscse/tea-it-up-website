@@ -16,6 +16,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { MainLogo } from '@/asset/asset'
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -35,7 +36,7 @@ const Header = () => {
       <Link href="/" className="flex items-center gap-2 z-50">
         <div className="relative w-32 h-10 flex items-center">
           <Image
-            src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&q=80&w=200"
+            src={MainLogo}
             alt="Tee It Up Logo"
             fill
             className="object-contain object-left mix-blend-multiply"
@@ -79,9 +80,10 @@ const Header = () => {
               <DropdownMenuTrigger asChild>
                 <button className="flex items-center gap-3 outline-none cursor-pointer">
                   <Avatar className="w-10 h-10 border-2 border-[#0A3A20] rounded-lg shadow-sm overflow-hidden">
-                    <AvatarImage
-                      src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100"
+                    <Image
+                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                       alt="User Avatar"
+                      fill
                       className="object-cover"
                     />
                     <AvatarFallback className="rounded-lg">US</AvatarFallback>
