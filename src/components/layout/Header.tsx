@@ -101,12 +101,12 @@ const Header = () => {
             </DropdownMenu>
           </div>
         ) : (
-          <Button
-            className="bg-[#0A3A20] hover:bg-[#072a17] text-white rounded-xl px-7 py-5 text-[15px] font-medium h-auto shadow-sm"
-            onClick={() => setIsAuthenticated(true)}
+          <Link
+            href="/sign-in"
+            className="bg-[#0A3A20] hover:bg-[#072a17] text-white rounded-xl px-7 py-2 text-[15px] font-medium h-auto shadow-sm"
           >
-            Sign up
-          </Button>
+            Sign In
+          </Link>
         )}
       </div>
 
@@ -159,12 +159,12 @@ const Header = () => {
                 </button>
               </div>
             ) : (
-              <Button
-                className="w-full bg-[#0A3A20] hover:bg-[#072a17] text-white py-6 rounded-xl text-lg font-medium"
-                onClick={() => setIsAuthenticated(true)}
+              <Link
+                href="/sign-in"
+                className="w-full bg-[#0A3A20] hover:bg-[#072a17] text-white py-2 rounded-xl text-lg font-medium"
               >
-                Sign up
-              </Button>
+                Sign In
+              </Link>
             )}
           </div>
         </div>
