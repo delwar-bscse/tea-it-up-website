@@ -12,13 +12,15 @@ import useLoginUser from "@/hooks/useUser";
 import Link from "next/link";
 
 const signinSchema = z.object({
+  name: z.string(),
   email: z.string().email(),
+  phone: z.string(),
   password: z.string().min(6),
 });
 
 type SigninFormValues = z.infer<typeof signinSchema>
 
-const SignIn = () => {
+const SignUp = () => {
   const router = useRouter();
   const { login } = useLoginUser();
   const {
@@ -49,16 +51,21 @@ const SignIn = () => {
       >
         <div className="mb-10">
           <h2 className="text-[40px] font-bold tracking-tight text-[#111827]">
-            Welcome back
+            Create Account
           </h2>
           <p className="mt-2 text-[#6B7280] text-lg">
-            Enter your details to access the clubhouse.
+            Enter your details to create your account
           </p>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <InputField title="Full Name  " name="name" placeholder="name@domain.com" register={register} error={errors.name} />
           <InputField title="Email Address" name="email" placeholder="name@domain.com" register={register} error={errors.email} />
-          <InputFieldPassword title="Password" name="password" placeholder="••••••••" register={register} error={errors.password} isForgotPassword={true} />
+          <InputField title="Phone Number" name="phone" placeholder="••••••••" register={register} error={errors.phone} />
+          <div className="grid grid-cols-2 gap-4">
+            <InputFieldPassword title="Password" name="password" placeholder="••••••••" register={register} error={errors.password} />
+            <InputFieldPassword title="Password" name="password" placeholder="••••••••" register={register} error={errors.password} />
+          </div>
 
           <button
             type="submit"
@@ -67,7 +74,7 @@ const SignIn = () => {
             Sign In
           </button>
           <p className="text-center">
-            Don't have an account? <Link href="/sign-up" className="text-[#064e3b] font-bold">Sign Up</Link>
+            Already have an account? <Link href="/sign-in" className="text-[#064e3b] font-bold">Sign In</Link>
           </p>
         </form>
       </motion.div>
@@ -77,4 +84,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;
