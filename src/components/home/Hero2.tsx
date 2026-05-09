@@ -25,7 +25,7 @@ const Hero2 = () => {
         duration: 0.6,
         // ease: "easeOut",
       },
-      ease: "easeInOut",
+      // ease: "easeInOut",
     },
   };
 
@@ -39,7 +39,7 @@ const Hero2 = () => {
         duration: 0.8,
         // ease: "easeOut",
       },
-      ease: "easeInOut",
+      // ease: "easeInOut",
     }),
   };
 

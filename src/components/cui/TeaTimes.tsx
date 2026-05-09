@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+
 import { motion } from "framer-motion";
-import { Users, Info, Lock, Calendar, Circle } from "lucide-react";
+import { Users, Info, Lock, Calendar } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface TeeTime {
   id: number;
@@ -49,6 +50,7 @@ const teeTimes: TeeTime[] = [
 ];
 
 const TeaTimes = () => {
+  const router = useRouter();
   return (
     <section className="py-20 px-4 md:px-8 bg-white max-w-7xl mx-auto font-sans">
       {/* Header Section */}
@@ -92,17 +94,15 @@ const TeaTimes = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
-            className={`relative flex flex-col md:flex-row items-center justify-between p-8 bg-white rounded-2xl transition-all ${
-              item.available 
-                ? "hover:shadow-xl hover:shadow-black/5 cursor-pointer ring-1 ring-gray-100" 
-                : "opacity-80 ring-1 ring-gray-50"
-            }`}
+            className={`relative flex flex-col md:flex-row items-center justify-between p-8 bg-white rounded-2xl transition-all ${item.available
+              ? "hover:shadow-xl hover:shadow-black/5 cursor-pointer ring-1 ring-gray-100"
+              : "opacity-80 ring-1 ring-gray-50"
+              }`}
           >
             {/* Left Accent Border */}
             <div
-              className={`absolute left-0 top-8 bottom-8 w-[5px] rounded-r-full ${
-                item.available ? "bg-[#0a4a1b]" : "bg-gray-200"
-              }`}
+              className={`absolute left-0 top-8 bottom-8 w-[5px] rounded-r-full ${item.available ? "bg-[#0a4a1b]" : "bg-gray-200"
+                }`}
             />
 
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-14 w-full">
@@ -160,14 +160,14 @@ const TeaTimes = () => {
               </div>
 
               <button
+                onClick={() => router.push(`/explore-clubs/reserve/1`)}
                 disabled={!item.available}
-                className={`px-10 py-4 rounded-xl font-bold transition-all duration-300 min-w-[210px] text-[15px] ${
-                  item.available
-                    ? "bg-[#0a4a1b] text-white hover:bg-[#073614] shadow-lg shadow-[#0a4a1b]/10 active:scale-95"
-                    : "bg-[#f3f4f6] text-[#9ca3af] cursor-not-allowed"
-                }`}
+                className={`px-10 py-4 rounded-xl font-bold transition-all duration-300 min-w-[210px] text-[15px] text-center  ${item.available
+                  ? "bg-[#0a4a1b] text-white hover:bg-[#073614] shadow-lg shadow-[#0a4a1b]/10 active:scale-95"
+                  : "bg-[#f3f4f6] text-[#9ca3af] cursor-not-allowed"
+                  }`}
               >
-                {item.available ? "Reserve Tee Time" : "Unavailable"}
+                {item.available ? "Reserve" : "Unavailable"}
               </button>
             </div>
           </motion.div>

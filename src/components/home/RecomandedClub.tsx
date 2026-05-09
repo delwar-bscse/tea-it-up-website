@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Star, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ClubData {
   id: number;
@@ -72,9 +73,9 @@ const RecomandedClub = () => {
             Recommended for You
           </h2>
         </div>
-        <button className="flex items-center gap-2 text-[#0B3D2E] font-bold text-sm hover:translate-x-1 transition-transform cursor-pointer">
+        <Link href="/all-feature-club" className="flex items-center gap-2 text-[#0B3D2E] font-bold text-sm hover:translate-x-1 transition-transform cursor-pointer">
           Explore All Courses <ArrowRight size={18} />
-        </button>
+        </Link>
       </div>
 
       {/* Grid of Cards */}

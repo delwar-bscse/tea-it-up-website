@@ -8,6 +8,7 @@ type CourseCardProps = {
 
 import { motion } from 'framer-motion';
 import { ArrowRight, MapPin, Star } from 'lucide-react';
+import Link from 'next/link';
 
 const CourseCard = ({ title, rating, location, price, image }: CourseCardProps) => {
   const itemVariants = {
@@ -55,10 +56,10 @@ const CourseCard = ({ title, rating, location, price, image }: CourseCardProps) 
         <div className="flex justify-between items-center">
           <span className="text-[#113f1b] font-bold text-lg">{price}</span>
 
-          <button className="flex items-center gap-1 text-[#113f1b] font-bold text-sm hover:underline group/btn">
+          <Link href={`/explore-clubs/1`} className="flex items-center gap-1 text-[#113f1b] font-bold text-sm hover:underline group/btn">
             Book
             <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
-          </button>
+          </Link>
         </div>
       </div>
     </motion.div>

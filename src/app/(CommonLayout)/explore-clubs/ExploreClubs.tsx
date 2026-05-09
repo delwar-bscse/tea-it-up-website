@@ -205,7 +205,7 @@ const ExploreClubs = () => {
                       <span className="font-bold text-[#113f1b]">{course.rating}</span>
                       <span className="text-gray-500 font-medium">({course.reviews} Reviews)</span>
                     </div>
-                    <Link href={`/explore-clubs/reserve/${course?.id}`} className="bg-[#113f1b] hover:bg-[#0a2e0f] text-white text-[13px] font-bold px-6 py-2.5 rounded-xl transition-colors shadow-sm">
+                    <Link href={`/explore-clubs/${course?.id}`} className="bg-[#113f1b] hover:bg-[#0a2e0f] text-white text-[13px] font-bold px-6 py-2.5 rounded-xl transition-colors shadow-sm">
                       Reserve Tee Time
                     </Link>
                   </div>

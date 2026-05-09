@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import CourseCard from './ClubCard';
+import { useRouter } from 'next/navigation';
 
 const courses = [
   {
@@ -71,6 +72,7 @@ const courses = [
 ];
 
 const AllFeatureClub = () => {
+  const router = useRouter();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -105,7 +107,7 @@ const AllFeatureClub = () => {
         </div>
 
         <button
-          onClick={() => window.location.href = "/"}
+          onClick={() => router.push("/")}
           className="flex items-center gap-1.5 text-[#113f1b] font-bold hover:underline transition-all group pb-1">
           <ArrowLeft className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           Back to Home

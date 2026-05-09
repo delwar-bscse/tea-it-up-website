@@ -157,8 +157,8 @@ const Header = () => {
                   <AvatarFallback className="rounded-lg">US</AvatarFallback>
                 </Avatar>
                 <div className="flex-1">
-                  <p className="font-semibold text-gray-900">User Profile</p>
-                  <p className="text-sm text-gray-500">View your account</p>
+                  <Link href="/profile" className="font-semibold text-gray-900">Profile</Link>
+                  <Link href="/my-bookings" className="text-sm text-gray-500">My Bookings</Link>
                 </div>
                 <button className="text-gray-800 p-2 bg-gray-50 rounded-full hover:bg-gray-100">
                   <Bell className="w-5 h-5" />

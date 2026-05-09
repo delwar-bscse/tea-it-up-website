@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Star, MapPin, ArrowRight } from 'lucide-react';
 import CourseCard from './ClubCard';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const courses = [
   {
@@ -30,6 +31,7 @@ const courses = [
 ];
 
 const FeatureClub = () => {
+  const router = useRouter();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -48,7 +50,7 @@ const FeatureClub = () => {
       transition: {
         duration: 0.6,
       },
-      ease: "easeOut"
+      // ease: "easeOut"
     },
   };
 
@@ -123,7 +125,7 @@ const FeatureClub = () => {
                     $240 <span className="text-base font-normal text-white/80">/ tee</span>
                   </p>
                 </div>
-                <button className="bg-white text-[#113f1b] font-bold px-6 py-2.5 rounded-lg hover:bg-gray-100 transition-colors shadow-md">
+                <button onClick={() => router.push(`/explore-clubs/1`)} className="bg-white text-[#113f1b] font-bold px-6 py-2.5 rounded-lg hover:bg-gray-100 transition-colors shadow-md">
                   Details
                 </button>
               </div>
@@ -155,7 +157,7 @@ const FeatureClub = () => {
                 <p className="text-white font-bold text-2xl md:text-3xl">
                   $185 <span className="text-base font-normal text-white/80">/ tee</span>
                 </p>
-                <button className="bg-white/15 backdrop-blur-md border border-white/30 text-white font-bold px-6 py-2.5 rounded-lg hover:bg-white/25 transition-all shadow-md">
+                <button onClick={() => router.push(`/explore-clubs/1`)} className="bg-white/15 backdrop-blur-md border border-white/30 text-white font-bold px-6 py-2.5 rounded-lg hover:bg-white/25 transition-all shadow-md">
                   Details
                 </button>
               </div>
