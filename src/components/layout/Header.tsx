@@ -17,6 +17,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { MainLogo } from '@/asset/asset'
+import useLoginUser from '@/hooks/useUser'
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -27,8 +28,12 @@ const navLinks = [
 
 const Header = () => {
   const pathname = usePathname()
-  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  const { isLogin, login, logout } = useLoginUser();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const handleLogout = () => {
+    logout()
+  }
 
   return (
     <header className="w-full bg-[#ECF6F1] px-4 md:px-8 py-4 flex items-center justify-between sticky top-0 z-50">
@@ -70,7 +75,7 @@ const Header = () => {
 
       {/* Right Actions */}
       <div className="hidden md:flex items-center gap-6">
-        {isAuthenticated ? (
+        {isLogin ? (
           <div className="flex items-center gap-5">
             <button className="text-gray-800 hover:text-[#1b8a5a] transition-colors relative">
               <Bell className="w-[22px] h-[22px]" />
@@ -96,7 +101,7 @@ const Header = () => {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Profile</DropdownMenuItem>
                 <DropdownMenuItem>Settings</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setIsAuthenticated(false)}>Sign out</DropdownMenuItem>
+                <DropdownMenuItem onClick={handleLogout}>Sign out</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -141,7 +146,7 @@ const Header = () => {
           </nav>
 
           <div className="mt-2 pt-6 border-t border-gray-100 flex items-center justify-between">
-            {isAuthenticated ? (
+            {isLogin ? (
               <div className="flex items-center gap-4 w-full">
                 <Avatar className="w-12 h-12 border-2 border-[#0A3A20] rounded-lg overflow-hidden">
                   <AvatarImage

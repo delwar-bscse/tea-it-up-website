@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import InputFieldPassword from "@/components/form/InputFieldPassword";
 import BottomDot from "../BottomDot";
 import { useRouter } from "next/navigation";
+import useLoginUser from "@/hooks/useUser";
 
 const signinSchema = z.object({
   email: z.string().email(),
@@ -18,6 +19,7 @@ type SigninFormValues = z.infer<typeof signinSchema>
 
 const SignIn = () => {
   const router = useRouter();
+  const { login } = useLoginUser();
   const {
     register,
     handleSubmit,
@@ -32,7 +34,8 @@ const SignIn = () => {
 
   const onSubmit = (data: any) => {
     console.log(data);
-    router.push('/');
+    login();
+    router.replace('/');
   };
 
   return (
